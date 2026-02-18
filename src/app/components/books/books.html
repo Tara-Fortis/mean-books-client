@@ -7,22 +7,23 @@
     }
 
 </ul>
-
-<section>
-    <h1>Book Details</h1>
-    <form>
-        <fieldset>
-            <label for="_id">_id:</label>
-            <input type="_id" name="_id" [ngModel]="book?._id" />
-        </fieldset>
-        <fieldset>
-            <label for="title">title:</label>
-            <input type="text" name="title" [ngModel]="book?.title">
-        </fieldset>
-        <fieldset>
-            <label for="year">year:</label>
-            <input type="number" name="year" [ngModel]="book?.year">
-        </fieldset>
-        <button (click)="clearForm()">Reset</button>
-    </form>
-</section>
+@if (book) {
+    <section>
+        <h1>Book Details</h1>
+        <form>
+            <fieldset>
+                <label for="_id">_id:</label>
+                <input type="_id" name="_id" [(ngModel)]="book._id" />
+            </fieldset>
+            <fieldset>
+                <label for="title">title:</label>
+                <input type="text" name="title" [(ngModel)]="book.title">
+            </fieldset>
+            <fieldset>
+                <label for="year">year:</label>
+                <input type="number" name="year" [(ngModel)]="book.year">
+            </fieldset>
+            <button (click)="clearForm()">Reset</button>
+        </form>
+    </section>
+}
