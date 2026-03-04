@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Book } from '../../models/book.model';
 
-// define Book class that will be used by view
-export class Book {
-  _id: string | undefined;
-  title: string | undefined;
-  year: number | undefined;
-}
 @Component({
   selector: 'app-books',
   imports: [FormsModule],
