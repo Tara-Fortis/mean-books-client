@@ -4,16 +4,34 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Book } from '../models/book.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  // constructor: starup code of servicel. Initalize HttpClient dependency so all methos can use
+  // class level var holding api url for all methods
+  serverUrl: string = environment.serverURL;
+
+  // constructor: startup code of service.  Initiatlize HttpClient dependency so all methods can use
   constructor(private http: HttpClient) { }
 
   // get all
   getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>('http://localhost:4000/api/v1/books');
+    return this.http.get<Book[]>(`${this.serverUrl}/api/v1/books`);
+  }
+
+  // post
+  createBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(`${this.serverUrl}/api/v1/books`, book);
+  }
+
+  // delete
+  deleteBook(_id: string): Observable<any> {
+    return this.http.delete<void>(`${this.serverUrl}/api/v1/books/${_id}`);
+  }
+  // put
+  updateBook(book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.serverUrl}/api/v1/books/${book._id}`, book);
   }
 }

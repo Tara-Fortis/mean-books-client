@@ -1,29 +1,32 @@
 <h1>Our Books</h1>
-<ul>
-    @for (book of BOOKS; track book._id){
-    <li>
-        {{ book.title }} <button (click)="onSelect(book)">Select</button>
-    </li>
-    }
-</ul>
-
-@if (book) {
-    <section>
-        <h1>Book Details</h1>
-        <form>
-            <fieldset>
-                <label for="_id">_id:</label>
-                <input type="_id" name="_id" [(ngModel)]="book._id" />
-            </fieldset>
-            <fieldset>
-                <label for="title">title:</label>
-                <input type="text" name="title" [(ngModel)]="book.title">
-            </fieldset>
-            <fieldset>
-                <label for="year">year:</label>
-                <input type="number" name="year" [(ngModel)]="book.year">
-            </fieldset>
-            <button (click)="clearForm()">Reset</button>
-        </form>
+<section class="row">
+    <section class="col-lg-6">
+        <ul class="list-group">
+            @for (book of BOOKS; track book._id) {
+            <li class="list-group-item">
+                    {{ book.title }} <button (click)="onSelect(book)">Select</button>
+                </li>
+            }
+        </ul>
     </section>
-}
+    <section class="col-lg-6">
+        <section>
+            <h1>Book Details</h1>
+            <form>
+                <fieldset class="form-group p-2">
+                    <label for="title" class="control-label m-2">title:</label>
+                    <input id="title" name="title" [(ngModel)]="book.title" />
+                </fieldset>
+                <fieldset class="form-group p-2">
+                    <label for="year" class="control-label m-2">year:</label>
+                    <input id="year" name="year" [(ngModel)]="book.year" />
+                </fieldset>
+                <button (click)="saveBook(book)" class="btn btn-info m-2">Save</button>
+                <button (click)="clearForm()" class="btn btn-info m-2">Reset</button>
+                @if (book._id) {
+                    <button (click)="deleteBook(book._id)" class="btn btn-danger m-2">Delete</button>
+                }
+            </form>
+        </section>
+    </section>
+</section>
