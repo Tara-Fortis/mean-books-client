@@ -5,4 +5,3 @@ import { App } from './app/app';
 // first param: default component to load when app starts
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
-// start up code goes here

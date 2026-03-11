@@ -7,12 +7,11 @@ import { routes } from './app.routes';
 import { BookService } from './services/book-service';
 import { provideHttpClient } from '@angular/common/http';
 
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    BookService, // enable
-    provideHttpClient() // enable
+    BookService,  // enable
+    provideHttpClient()  // enable
   ]
 };

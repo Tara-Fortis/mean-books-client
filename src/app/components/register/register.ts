@@ -3,12 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-register',
   imports: [],
-  templateUrl: './register.html',
+  templateUrl: './register.html'
 })
-export class User {
-  username: string | undefined;
-  password: string | undefined;
-  confirm: string | undefined;
+export class Register {
 
-  register: User | undefined;
 }

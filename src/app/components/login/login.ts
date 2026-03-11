@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
-  templateUrl: './login.html',
+  imports: [],
+  templateUrl: './login.html'
 })
-export class User {
-  username: string | undefined;
-  password: string | undefined;
+export class Login {
 
-  login: User | undefined;
-};
-
+}
