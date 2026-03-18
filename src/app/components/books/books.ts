@@ -39,8 +39,8 @@ export class Books {
   }
 
   saveBook(book: Book): void {
-
     if (!book._id) {
+      // new book
       this.bookService.createBook(book).subscribe((response) => {
         // refresh page
         this.getBooks();
@@ -48,28 +48,30 @@ export class Books {
       });
     }
     else {
+      // edit existing book
       this.bookService.updateBook(book).subscribe((response) => {
         // refresh page
+        this.getBooks();
+        this.clearForm();
+      });
+    }   
+  }
+
+  deleteBook(_id: string): void {
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.bookService.deleteBook(_id).subscribe((response) => {
+         // refresh page
         this.getBooks();
         this.clearForm();
       });
     }
   }
 
-  deleteBook(_id: string): void {
-    if (confirm('Are you sure you want to delete this book?')) {
-      this.bookService.deleteBook(_id).subscribe((response) => {
-        // refresh page
-        this.getBooks();
-        this.clearForm();
-      })
-    }
-  };
   // select book when an item in list is clicked
   onSelect(selectedBook: Book): void {
     // make a "shallow" copy of the book so list not updated in realtime
-    // ... is the spread operator in JS - refrences all properties of an obj / arry
-    this.book = {...selectedBook};
+    // ... is the "spread" operator in JS - references all properties of an object / array
+    this.book = { ...selectedBook };
   }
 
   clearForm(): void {
