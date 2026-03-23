@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Book } from '../../models/book.model';
 
-// l8 imports
+// 18 imports
 import { BookService } from '../../services/book-service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
