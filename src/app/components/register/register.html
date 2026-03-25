@@ -1,18 +1,19 @@
 <section>
     <h1>Register for a new account here</h1>
-    <form>
+    <form (ngSubmit)="register()">
+        <h2 class="{{ messageClass }}">{{ message }}</h2>
         <fieldset>
             <label for="username">Username:</label>
-            <input type="text" name="username">
+            <input [(ngModel)]="username" type="text" name="username" required>
         </fieldset>
         <fieldset>
             <label for="password">Password:</label>
-            <input type="password" name="password">
+            <input [(ngModel)]="password" type="password" name="password" required>
         </fieldset>
         <fieldset>
             <label for="confirm">Confirm password:</label>
-            <input type="password" name="confirm">
+            <input [(ngModel)]="confirm" type="password" name="confirm" required>
         </fieldset>
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-info">Register</button>
     </form>
 </section>
