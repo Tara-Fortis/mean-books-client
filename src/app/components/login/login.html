@@ -1,12 +1,13 @@
 <h1>Login</h1>
-<form>
-    <fieldset>
-        <label>Username:</label>
-        <input />
-    </fieldset>
-    <fieldset>
-        <label>Password:</label>
-        <input type="password" />
-    </fieldset>
+<form (ngSubmit)="login()">
+        <h2 class="{{ messageClass }}">{{ message }}</h2>
+        <fieldset>
+            <label for="username">Username:</label>
+            <input [(ngModel)]="username" type="text" name="username" required>
+        </fieldset>
+        <fieldset>
+            <label for="password">Password:</label>
+            <input [(ngModel)]="password" type="password" name="password" required>
+        </fieldset>
     <button class="btn btn-info offset-2">Login</button>
 </form>
