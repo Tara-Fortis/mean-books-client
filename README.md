@@ -31,12 +31,13 @@ Inside src/app/services:
 ```bash
 ng generate service bookService
 ```
+
 Creating environment folder + files:
 
-````bash
- ng generate environments
- ````
- 
+```bash
+ng generate environments
+```
+
 ## Building
 
 To build the project run:
@@ -46,4 +47,24 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Lesson 9 Commands
+
+```bash
+cd src/app/components
+ng generate component nav
+```
+
+## Lesson 10 Commands
+
+```bash
+cd src/app/services
+ng generate service auth-service
+```
+
+```bash
+cd..
+cd components
+ng generate component logout
+```
 
